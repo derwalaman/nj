@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(120deg, #ff9a9e, #fecfef);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .name-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    z-index: 2;
+  }
+  
+  .letter {
+    position: relative;
+    opacity: 0;
+    transition: all 2s ease-in-out;
+    transform: rotate(0deg);
+    font-size: 5rem;
+    padding: 0 5px; 
+    text-shadow: 0 0 15px #f39c12;
+  }
+  
+  .name-container .letter:hover {
+    color: #ff1493;
+    transform: scale(1.3);
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(0px); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0px); }
+  }
+  
+  .name-container:hover .letter {
+    animation: shake 0.5s ease-in-out infinite;
+  }
+  
+  /* Multiple hearts falling animation */
+  .heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .heart {
+    position: absolute;
+    width: 30px; /* Reduced size of hearts */
+    height: 30px;
+    background-image: url('heart.png'); /* Use your heart image here */
+    background-size: contain;
+    opacity: 0.8;
+    animation: fall 5s infinite ease-in-out;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(-100px) rotate(0deg); /* Start from outside the top of the screen */
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Responsive font sizes */
+  @media (max-width: 768px) {
+    .letter {
+      font-size: 3rem;  
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .letter {
+      font-size: 2rem;  
+    }
+  }
+  
