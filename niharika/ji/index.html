@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter to Niharika Ji</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #FFC3A0, #FFAFBD);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #FF6F61;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            margin: 0 10px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .button:hover {
+            background-color: #FF3D3D;
+        }
+
+        .notebook {
+            position: relative;
+            width: 400px;
+            height: 500px;
+            perspective: 2000px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform-origin: left;
+            transition: transform 1s ease-in-out;
+            border-radius: 10px;
+            padding: 20px;
+            box-sizing: border-box;
+            line-height: 1.6;
+            overflow: hidden;
+            backface-visibility: hidden;
+        }
+
+        .page p, .page h1 {
+            margin: 0;
+            padding: 10px;
+        }
+
+        .page h1 {
+            font-size: 1.8rem;
+            color: #FF1493;
+            margin-bottom: 10px;
+        }
+
+        .page p {
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        /* Page styles for turning effect */
+        .page-1 {
+            z-index: 5;
+        }
+
+        .page-2 {
+            z-index: 4;
+            transform: rotateY(180deg);
+        }
+
+        .page-3 {
+            z-index: 3;
+            transform: rotateY(180deg);
+        }
+
+        .page-4 {
+            z-index: 2;
+            transform: rotateY(180deg);
+        }
+
+        .page-5 {
+            z-index: 1;
+            transform: rotateY(180deg);
+        }
+
+        .turned {
+            transform: rotateY(-180deg);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .notebook {
+                width: 320px;
+                height: 400px;
+            }
+
+            .page h1 {
+                font-size: 1.5rem;
+            }
+
+            .page p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .notebook {
+                width: 280px;
+                height: 350px;
+            }
+
+            .page h1 {
+                font-size: 1.3rem;
+            }
+
+            .page p {
+                font-size: 0.95rem;
+            }
+
+            .button {
+                width: 35px;
+                height: 35px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Sun Animation */
+        .sun {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #FFD700 0%, #FFEA00 100%);
+            border-radius: 50%;
+            animation: rise 2s forwards;
+        }
+
+        @keyframes rise {
+            0% {
+                top: 80%;
+                opacity: 0;
+            }
+            100% {
+                top: 10%;
+                opacity: 1;
+            }
+        }
+
+        /* Rose Image Style */
+        .rose {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Previous Button -->
+        <button class="button" id="prevBtn" onclick="prevPage()">&#8249;</button>
+
+        <!-- Notebook -->
+        <div class="notebook">
+            <!-- Page 1: Good Morning -->
+            <div class="page page-1" id="page1">
+                <div class="sun"></div>
+                <p style="margin-top: 120px; text-align: center;">Good Morning, Niharika Ji!</p>
+                <p style="text-align: center;">May your day be filled with joy, sunshine, and everything beautiful! Thank you for being a bright part of my life.</p>
+            </div>
+
+            <!-- Page 2 -->
+            <div class="page page-2" id="page2">
+                <h1>Dear Niharika Ji,</h1>
+                <p>Thank you for coming into my life and making it so special. You brought happiness, love, and positivity that I never knew I needed.</p>
+            </div>
+
+            <!-- Page 3 -->
+            <div class="page page-3" id="page3">
+                <h1>Your Importance</h1>
+                <p>Words can’t describe how much you mean to me. I respect you deeply and care for you with all my heart. I’m sorry for any mistakes I might have made.</p>
+            </div>
+
+            <!-- Page 4 -->
+            <div class="page page-4" id="page4">
+                <h1>Thank You</h1>
+                <p>I just want to say thank you for being in my life and making every day brighter. You make my world a better place, and I’m forever grateful for that.</p>
+            </div>
+
+            <!-- Page 5: Rose Gift -->
+            <div class="page page-5" id="page5">
+                <h1>A Special Gift</h1>
+                <p>Here’s a rose for you, a small token of my appreciation and affection!</p>
+                <img src="rose.png" alt="Rose" class="rose">
+            </div>
+        </div>
+
+        <!-- Next Button -->
+        <button class="button" id="nextBtn" onclick="nextPage()">&#8250;</button>
+    </div>
+
+    <script>
+        // Variables to manage page turning
+        let currentPage = 1;
+        const totalPages = 5;
+
+        function updatePages() {
+            document.querySelectorAll('.page').forEach((page, index) => {
+                if (index + 1 === currentPage) {
+                    page.style.transform = 'rotateY(0deg)';
+                } else if (index + 1 === currentPage + 1) {
+                    page.style.transform = 'rotateY(0deg)';
+                } else {
+                    page.style.transform = 'rotateY(-180deg)';
+                }
+            });
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePages();
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePages();
+            }
+        }
+
+        // Initial setup
+        updatePages();
+    </script>
+
+</body>
+</html>
